@@ -1,0 +1,395 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block title %}Rohan Sadhukhan{% endblock %}
+
+
+
+{% block add_css %}
+ <style>
+     .imgShdw{
+         filter: drop-shadow(5px 5px 5px gray);
+     }
+
+     .card-hlight {
+   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.card-hlight:hover {
+   box-shadow: 0 20px 25px 0 rgba(0, 0, 0, 0.2), 0 20px 25px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+
+.techStackImg{
+border-radius:100%;  background-color: aliceblue; padding: 2%; box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 10px 10px 0 rgba(0, 0, 0, 0.19);
+}
+ </style>
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+ 
+<!-- Title Section -->
+<div class="container">
+    <div class="row text-center align-items-center my-5 py-5">
+<!-- image -->
+        <div class="col-12 col-md-6">
+            <img class="img-fluid rounded-circle w-75 imgShdw" src="{{PersonalInfo.image.url}}" alt="Rohan">
+        </div>
+<!-- text -->
+        <div class="col-12 col-md-6 pt-5">
+            <div class="font-weight-light" style="font-size: 50px;">
+            Hi, im <span class="text-primary">{{PersonalInfo.Name}}</span> 
+            </div>
+            
+             <h4 class="font-weight-light">{{PersonalInfo.TagLine}}</h4>
+             <h5 class="font-weight-light mt-5"> <i class="fas fa-mobile-alt"></i> {{PersonalInfo.PhoneNumber}}</h5>
+             <h5 class="font-weight-light"> <i class="far fa-envelope"></i> {{PersonalInfo.Email}}</h5>
+             <a href=" {{PersonalInfo.Resume.url}}" class="btn btn-outline-primary mt-3 " download="Rohan Sadhukhan"> Resume</a>
+        </div>
+      
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Recomendation stack section -->
+<div class="container-fluid my-5">
+    <!-- Row -->
+    <div class="row text-center py-5 d-flex flex-nowrap overflow-auto scrollbar scrol">
+       
+       {%for recom in recomend%}
+        <!-- Column -->
+        <div class="col-12 col-md-4 "  data-toggle="modal" data-target="#RecomendationModal{{forloop.counter}}">
+            <div class="card   h-100 card-hlight">
+                <div class="card-body">
+                    <h4 class="card-text  ">{{recom.RecomendationMsg|truncatechars:27}}</h4>
+                    <p class="card-text text-secondary-mb-0    ">{{recom.Name}}</p>
+                    <p class="card-text text-secondary ">{{recom.Designation}} at {{recom.CompanyName}}  </p>
+                    
+                </div>
+            </div>
+        </div>
+
+
+
+        
+                    
+            <!-- Modal -->
+            <div class="modal fade" id="RecomendationModal{{forloop.counter}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+               
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                     <div class="text-justify-center mt-5">
+                        <h5 class="card-text   font-weight-bold">{{recom.RecomendationMsg}}</h5>
+                     </div>
+
+                     <div class="text-center mt-2">
+                        <div class="text-center">
+                                <p class="  text-secondary pb-0 mb-0 font-weight-light"> {{recom.CompanyName}}  </p>
+                                <p class="  text-secondary pb-0 mb-0 font-weight-light">{{recom.Designation}}</p>
+                                <p class=" text-secondary font-weight-light">{{recom.Name}}</p>
+                        </div>
+                        
+                    </div>
+
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div> -->
+                </div>
+            </div>
+            </div>
+        {%endfor%}
+
+
+ 
+
+    </div>
+    <!-- End Row -->
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- Technology  Stack Section-->
+<div class="bg-primary w-100 my-5" id="Tstack">
+
+    <div class="container text-center py-5">
+        <h1 class="font-weight-light text-light">
+            <span class="text-light" style="font-weight: bold;">Technology  Stack</span> </h1>
+            <div class="lead text-light" >i design, develope and deliver with these weapons </div>
+
+            <!-- stack row -->
+                    <div class="row justify-content-around py-3">
+
+                        {%for stac in Tstack%}
+            <!-- tech stack names start -->
+                    <div class="col-3 mt-3">
+                        <div class="text-center">
+                        <img class="techStackImg"  src="{{stac.image.url}}"  height="70px" width="70px" alt="">
+                            <br>
+                            <span class="text-light text-center ">{{stac.StackName }}</span>
+                        </div>
+                        <div class="text-center">
+                            {% if stac.Star1 %}
+                            <span class="text-light">★</span>
+                            {%else%}
+                            <span class="text-dark">★</span>
+                            {%endif%}
+                            
+                            {% if stac.Star2 %}
+                            <span class="text-light">★</span>
+                            {%else%}
+                            <span class="text-dark">★</span>
+                            {%endif%}
+
+                            {% if stac.Star3 %}
+                            <span class="text-light">★</span>
+                            {%else%}
+                            <span class="text-dark">★</span>
+                            {%endif%}
+
+                            {% if stac.Star4 %}
+                            <span class="text-light">★</span>
+                            {%else%}
+                            <span class="text-dark">★</span>
+                            {%endif%}
+
+                            {% if stac.Star5 %}
+                            <span class="text-light">★</span>
+                            {%else%}
+                            <span class="text-dark">★</span>
+                            {%endif%}
+
+                            {% if stac.Star6 %}
+                            <span class="text-light">★</span>
+                            {%else%}
+                            <span class="text-dark">★</span>
+                            {%endif%}
+
+                        </div>
+                    </div>
+            <!-- tech stack names start end -->
+                        {%endfor%}
+
+            
+
+                    </div> 
+            <!-- stack row end-->
+
+    </div>
+
+</div>
+
+
+
+<!-- Project section -->
+<div class="container text-center my-5" id="project">
+    <h1 class="font-weight-light">My <span class="text-primary font-weight-bold">Projects</span></h1>
+    <div class="lead">I build websites just like these website</div> 
+ <div class="row my-5 pt-3">
+
+    {%for P in project%}
+    {%if forloop.counter <= 3%}
+     <!-- first col -->
+     <div class="col-12 col-md-4 my-2">
+         <div class="card shadow h-100">
+             <img class="card-img-top p-1" src="{{P.image.url}}"   alt="image">
+             <div class="card-body">
+                  <h4>{{P.ProjectName}}</h4>
+                 <p class="card-text">{{P.ProjectDescribtion|truncatechars:30}}</p>
+                  <a href="javascript:void(0)" data-toggle="modal" data-target="#projectModal{{forloop.counter}}" class="stretched-link" style="text-decoration: none;">More</a>
+             </div>
+             
+         </div>
+     </div>
+
+
+
+
+     <!-- Large modal -->
+            <div class="modal fade bd-example-modal-lg" id="projectModal{{forloop.counter}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content text-justify-center">
+                    <img class=" w-100 p-2" src="{{P.image.url}}"  height="300px" alt="image">
+                   <h5 class="mt-3">{{P.ProjectName}}</h5> 
+                   <p class="card-text mt-2 px-2">{{P.ProjectDescribtion}} </p>
+            <div class="  py-3"> <a href="{{P.ProjectLink}}" class="btn btn-outline-primary py-1" > Project Link  </a></div>
+                </div>
+            </div>
+            </div>
+     {%endif%}
+     {%endfor%}
+   
+ </div>
+
+<div class="my-5 text-right">
+    <a href="{%url 'Index:AllProjects'%}" style="text-decoration: none;">
+        <h5>
+            See My Projects <i class="fas fa-arrow-right align-middle"></i>
+        </h5>
+    </a>
+</div>
+
+
+
+</div>
+
+
+
+
+<!-- About section -->
+<div class="container-fluid bg-light text-center my-5" id="about">
+ <h1 class="font-weight-light text-dark pt-3">
+     {%for a in about%}
+     {%if forloop.counter <= 1%}
+        <span class="text-primary" style="font-weight: bold;">About</span> me </h1>
+        <div class="lead text-dark" >{{a.TagLine}} </div>
+
+<div class="container my-5">
+        <!-- row 1 -->
+        <div class="row  mx-5  ">
+            <!-- What can i do? -->
+           <div class="col-12 col-md-6 text-justify my-5">
+                <h4 class="text-center">What can  i do?</h4>
+               <p>  {{a.What_can_i_do}} 
+                </p>
+           </div>
+            <!-- What am i doing currently? -->
+             <div class="col-12 col-md-6 text-justify  my-5">
+                <h4 class="text-center">What am i doing currently?</h4>
+               <p>{{a.What_am_i_doing_currently}} 
+                </p>
+           </div>
+        </div>
+        <!-- End row 1 -->
+
+        <!-- row 2 -->
+        <div  class="row  mx-5 ">
+            <!-- What do i belive in? -->
+            <div class="col-12 col-md-6 text-justify my-5">
+                <h3 class="text-center">What do i belive in?</h3>
+                <p>{{a.What_do_i_belive_in}} </p>
+            </div>
+            <!-- How i can help you? -->
+             <div class="col-12 col-md-6 text-justify my-5 ">
+                <h3 class="text-center">How i can help you?</h3>
+                <p>{{a.How_i_can_help_you}} </p>
+            </div>
+        </div>
+        <!-- End row 2 -->
+    </div>
+    {%endif%}
+    {%endfor%}
+</div>
+
+ 
+
+
+
+
+<!-- Education & Work Experience -->
+<div class="container py-3" id="EE">
+    <div class="row">
+        <!-- Education Section -->
+        <div class="col-12 col-md-6 mt-5">
+            <div class="row">
+                <div class="col-12">
+                     <h1 class="text-center font-weight-light text-dark py-3">My <span class="text-primary" style="font-weight: bold;">Education</span>  </h1>
+                     
+
+
+                     {%for e in education%}
+                     <!-- Education card -->
+                    <div class="card mt-3 shadow">
+                       <!--  <h5 class="card-header">Featured</h5> -->
+                        <div class="card-body">
+                            <h5 class="card-title mb-3 pb-1 font-weight-bold">{{e.NameOfInstitute}}</h5>
+                            <p class="card-text text-primary pb-0 mb-0 font-weight-light">{{e.NameOfDegree}} </p>
+                            <small class="card-text text-primary font-weight-light">{{e.StartToEndDate}}</small>
+                           
+                        </div>
+                    </div>
+                     <!-- Education card end -->
+                     {%endfor%}
+
+
+
+                  
+
+                </div>
+            </div>
+        </div>
+        <!-- Education Section end -->
+
+
+
+
+        <!-- Work Experience Section -->
+        <div class="col-12 col-md-6 mt-5">
+            <div class="row">
+                <div class="col-12">
+                     <h1 class="text-center font-weight-light text-dark py-3"> <span class="text-primary" style="font-weight: bold;">Work</span> Experience  </h1>
+
+                    <!-- Education card -->
+                        <div class="card mt-3 shadow">
+                        <!--  <h5 class="card-header">Featured</h5> -->
+                            <div class="card-body">
+                                <h5 class="card-title mb-3 pb-1 font-weight-bold">Zaptay Group</h5>
+                                <p class="card-text text-primary pb-0 mb-0 font-weight-light">Software Engineer Intern</p>
+                                <small class="card-text text-primary font-weight-light">Nov 2020 - Present</small>
+                            
+                            </div>
+                        </div>
+                     <!-- Education card end -->
+
+
+                </div>
+            </div>
+        </div>
+        <!-- Work Experience Section end -->
+
+
+
+
+    </div>
+</div>
+
+
+{% endblock %}
+ 
+
+
+
+
+  {% block add_js %}
+    {% endblock %}

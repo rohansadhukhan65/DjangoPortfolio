@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+         <!-- Font Awsome -------------------------------------------------------------------------------------------->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+   
+   <!-- Fontawsome css -->
+   <link href="/static/css/all.css" rel="stylesheet">
+   <!--load all styles -->
+   <link href="fontawesome.css" rel="stylesheet">
+   <link href="brands.css" rel="stylesheet">
+   <link href="solid.css" rel="stylesheet">
+   <link href="regular.css" rel="stylesheet">
+   <link href="svg-with-js.css" rel="stylesheet">
+   <link href="v4-shims.css" rel="stylesheet">
+
+  
+
+    <title>{% block title %}{% endblock %}</title>
+
+
+    {% block add_css %}
+    
+    {% endblock %}
+
+
+
+    <style>
+        
+  .scrol::-webkit-scrollbar {
+  width: 2px; 
+  height: 5px;              /* width of the entire scrollbar */
+}
+
+.scrol::-webkit-scrollbar-track {
+  background: transparent;        /* color of the tracking area */
+}
+
+.scrol::-webkit-scrollbar-thumb {
+  background-color: #0064ff;    /* color of the scroll thumb */
+  border-radius: 10px;       /* roundness of the scroll thumb */
+  border: 3px solid transparent;  /* creates padding around scroll thumb */
+}
+    </style>
+
+</head>
+
+<body>
+
+
+
+<!-- navbar section -->
+ <nav class="navbar navbar-expand-md fixed-top bg-white shadow">
+ 
+
+
+    <div class="container my-2">
+        <a href="/" class="navbar-brand text-primary font-weight-bold ">
+        Rohan Sadhukhan
+        </a>
+        <!-- contact button -->
+        <a href="{%url 'Index:Contact'%}" class="ml-auto"> <button class="btn btn-outline-info  mx-3">Contact Me</button></a> 
+        
+
+        <!-- nav items -->
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapseNav">
+            <span class="fas fa-bars text-primary"></span>
+        </button>
+
+        <div class="collapse navbar-collapse flex-grow-0" id="collapseNav">
+            
+        <div class="navbar-nav ">
+        <!--  <center> <div class="bg-primary my-1" style=" width: 50%; height: 1px;"></div></center> -->
+        <a href="/" class="nav-item nav-link h6 text-primary my-auto text-center my-3 ">Home</a>
+
+        <a href="#about" class="nav-item nav-link h6 text-primary my-auto text-center my-3 ">About</a>
+        
+            <a href="#project" class="nav-item nav-link h6 text-primary my-auto text-center my-3"> Project's</a>
+        
+            <a href="#Tstack" class="nav-item nav-link h6 text-primary my-auto text-center my-3">Tech Stack</a>
+
+            <a href="#Tstack" class="nav-item nav-link h6 text-primary my-auto text-center my-3">Experience</a>
+
+           
+        </div>
+
+        </div>
+         <!-- nav items end-->
+
+    </div>
+
+
+
+
+ </nav>
+
+
+ 
+
+
+
+
+
+
+      {% block content %}
+
+      {% endblock %}
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer>
+    <div class="container-fluid bg-primary text-center">
+
+
+        <!-- first row -->
+        <div class="row py-5">
+            <div class="col-12">
+                <h2 class="text-light">Interested in working with me?</h2>
+              <a href="{%url 'Index:Contact'%}">  <button class="btn btn-outline-light btn-lg">Let's Talk</button> </a>
+            </div>
+        </div>
+
+
+        <!-- second row -->
+        <div class="row">
+            <!-- col 1 -->
+            <div class="col-12 col-md-4 py-3 pb-3">
+                <h5 class="text-light mb-3 " >More Links</h5>
+                <a class="text-light d-block" href="/" style="text-decoration: none;">Home</a>
+                <a class="text-light d-block" href="{%url 'Index:Contact'%}" style="text-decoration: none;">Contact Me</a>
+                <a class="text-light d-block" href="#project"  style="text-decoration: none;">Project's</a> 
+                <a class="text-light d-block" href="{%url 'Index:RecomendationWrite'%}" style="text-decoration: none;">
+                Write a recommendation <i class="fas fa-heart text-light"></i>
+                </a>
+            </div>
+            <!-- col 2 -->
+            <div class="col-12 col-md-4 py-3 text-light text-justify">
+                <p>I am a Full Stack Web Developer who can deliver your projects using technologies like Html, CSS, JavaScript, Bootstrap, Django, ReactJs , MongoDB, Sql.</p>
+            </div>
+            <!-- col 3 -->
+            <div class="col-12 col-md-4 py-3">
+                 <h5 class="text-light mb-3" >Social</h5>
+                 <center class="py-1"><a href="https://www.linkedin.com/in/rohan-sadhukhan/" target="_blank">
+                     <i class="fab fa-linkedin text-light" style="height: 6%; width: 6%;"></i>
+                 </a></center>
+                 <center class="py-1"><a href="https://github.com/rohansadhukhan65" target="_blank">
+                     <i class="fab fa-github text-light" style="height: 6%; width: 6%;"></i>
+                 </a></center>
+                <!--  <center class="py-1"><a href="#">
+                     <i class="fas fa-envelope text-light" style="height: 6%; width: 6%;"></i>
+                 </a></center> -->
+            </div>
+        </div>
+
+
+
+        <!-- third row -->
+        <div class="row">
+           <div class="col-12 py-3 text-light text-justify ">
+                <p class="text-light text-center">	 Copyright &#169;  Rohan Sadhukhan 2021</p>
+            </div>
+       </div>
+    </div>
+</footer>
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+
+         <!-- javascript fontawsome -->
+   <script defer src="/static/js/all.js"></script>
+   <!--load all styles -->
+   <script defer src="fontawesome.js"></script>
+   <script defer src="brands.js"></script>
+   <script defer src="solid.js"></script>
+   <script defer src="conflict-detection.js"></script>
+   <script defer src="regular.js"></script>
+   <script defer src="v4-shims.js"></script>
+
+
+      {% block add_js %}
+    {% endblock %}
+</body>
+
+</html>

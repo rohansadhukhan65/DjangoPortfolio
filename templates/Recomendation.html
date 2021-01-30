@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block title %}Rohan Sadhukhan{% endblock %}
+
+
+
+{% block add_css %}
+ <style>
+     .imgShdw{
+         filter: drop-shadow(5px 5px 5px gray);
+     }
+
+     .card-hlight {
+   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.card-hlight:hover {
+   box-shadow: 0 20px 25px 0 rgba(0, 0, 0, 0.2), 0 20px 25px 0 rgba(0, 0, 0, 0.19);
+
+}
+ </style>
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+ <div class="container my-5 py-5"  id="RecomID">
+            <h1 class="font-weight-light text-center py-5">
+              <span class="font-weight-bold text-primary">Thank you! </span>
+               for your time
+            </h1>
+            <div class="row justify-content-center">
+              <div class="col-11 col-lg-5">
+                <form method="POST" action="{%url 'Index:RecomendationWrite'%}">
+                  {%csrf_token%}
+                  <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input name="name" type="text" id="name" class="form-control shadow"   />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input name="email" type="email" id="email" class="form-control shadow"   />
+                  </div>
+
+                  <div class="form-group">
+                                <label for="Company_Institution">Company/Institution *</label>
+                    <input name="Company_Institution" type="text" id="Company_Institution" class="form-control shadow"   />
+                            </div>
+                            
+                             <div class="form-group">
+                    <label for="Designation">Designation *</label>
+                    <input name="Designation" type="text" id="Designation" class="form-control shadow"   />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="Recomendation">Recomendation *</label>
+                    <textarea name="Recomendation" id="Recomendation" rows="5" class="form-control shadow" ></textarea>
+                            </div>
+                  <button  type="submit" class="btn btn-danger shadow float-right"> Lots Of Love!</button>
+                  <div class="py-5 mx-2 text-center">
+                    <h5 class="text-success" >{{subMsg}}</h5>
+                  </div>
+                  
+                </form>
+              </div>
+            </div>
+          </div>
+{% endblock %}
+ 
+
+
+
+
+  {% block add_js %}
+    {% endblock %}
