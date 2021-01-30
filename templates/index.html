@@ -361,15 +361,17 @@ border-radius:100%;  background-color: aliceblue; padding: 2%; box-shadow: 0 10p
                      <h1 class="text-center font-weight-light text-dark py-3"> <span class="text-primary" style="font-weight: bold;">Work</span> Experience  </h1>
 
                     <!-- Education card -->
+                    {%for e in workexp%}
                         <div class="card mt-3 shadow">
                         <!--  <h5 class="card-header">Featured</h5> -->
                             <div class="card-body">
-                                <h5 class="card-title mb-3 pb-1 font-weight-bold">Zaptay Group</h5>
-                                <p class="card-text text-primary pb-0 mb-0 font-weight-light">Software Engineer Intern</p>
-                                <small class="card-text text-primary font-weight-light">Nov 2020 - Present</small>
+                                <h5 class="card-title mb-3 pb-1 font-weight-bold">{{e.NameOfCompany}}</h5>
+                                <p class="card-text text-primary pb-0 mb-0 font-weight-light">{{e.NameOfPost}}</p>
+                                <small class="card-text text-primary font-weight-light">{{e.StartToEndDate}}</small>
                             
                             </div>
                         </div>
+                    {%endfor%}
                      <!-- Education card end -->
 
 
