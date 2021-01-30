@@ -1,2 +1,2 @@
 # DjangoPortfolio
-My Portfolio Made With Django &amp; &lt;3
+My Portfolio Made With Django & ❤️ 
