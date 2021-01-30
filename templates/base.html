@@ -50,6 +50,23 @@
   border-radius: 10px;       /* roundness of the scroll thumb */
   border: 3px solid transparent;  /* creates padding around scroll thumb */
 }
+
+
+.contact {
+    display: inline;
+  }
+  .contact2{
+      display: none;
+  }
+
+@media only screen and (max-width: 769px) {
+  .contact {
+    display: none;
+  }
+  .contact2{
+      display: inline;
+  }
+}
     </style>
 
 </head>
@@ -68,7 +85,7 @@
         Rohan Sadhukhan
         </a>
         <!-- contact button -->
-        <a href="{%url 'Index:Contact'%}" class="ml-auto"> <button class="btn btn-outline-info  mx-3">Contact Me</button></a> 
+        <a href="{%url 'Index:Contact'%}" class="ml-auto contact"> <button class="btn btn-outline-info  mx-3">Contact Me</button></a> 
         
 
         <!-- nav items -->
@@ -80,6 +97,9 @@
             
         <div class="navbar-nav ">
         <!--  <center> <div class="bg-primary my-1" style=" width: 50%; height: 1px;"></div></center> -->
+
+      
+
         <a href="/" class="nav-item nav-link h6 text-primary my-auto text-center my-3 ">Home</a>
 
         <a href="#about" class="nav-item nav-link h6 text-primary my-auto text-center my-3 ">About</a>
@@ -89,6 +109,8 @@
             <a href="#Tstack" class="nav-item nav-link h6 text-primary my-auto text-center my-3">Tech Stack</a>
 
             <a href="#Tstack" class="nav-item nav-link h6 text-primary my-auto text-center my-3">Experience</a>
+
+              <a href="{%url 'Index:Contact'%}" class="nav-item nav-link h6 text-primary my-auto text-center my-3 contact2"> <button class="btn btn-outline-info  mx-3">Contact Me</button></a> 
 
            
         </div>
